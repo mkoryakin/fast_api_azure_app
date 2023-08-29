@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+azure-cosmosdb-table
+azure-storage-queue
+opencensus
+opencensus-ext-azure
+opencensus-ext-logging
+opencensus-ext-fastapi
+opencensus-ext-requests
