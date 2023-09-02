@@ -7,4 +7,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8000:8000
+      - 2222:2222
     env_file: .env
