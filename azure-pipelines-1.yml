@@ -34,7 +34,7 @@ jobs:
   displayName: string # Human-readable name for the job.
   steps:
   - script: echo Hello, world!
-    displayName: 'Run a one-line ${{ string }}'
+    displayName: 'Run a one-line ${{ parameters.string }}'
 
   - script: |
       echo Add other tasks to build, test, and deploy your project.
