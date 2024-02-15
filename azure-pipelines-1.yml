@@ -18,33 +18,37 @@ variables:
 
 pool: training-pool
 
-jobs:
-- job: job1 # Required as first property. ID of the job.
-  displayName: string # Human-readable name for the job.
-  steps:
-  - script: echo Hello, world!
-    displayName: 'Run a one-line $(test1)'
+stages:
+  - stage: "stage1"
+    jobs:
+    - job: job1 # Required as first property. ID of the job.
+      displayName: string # Human-readable name for the job.
+      steps:
+      - script: echo Hello, world!
+        displayName: 'Run a one-line $(test1)'
 
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
 
-- job: job2 # Required as first property. ID of the job.
-  displayName: string # Human-readable name for the job.
-  steps:
-  - script: echo Hello, world!
-    displayName: 'Run a one-line ${{ parameters.string }}'
+  - stage: "stage2"
+    jobs:
+    - job: job2 # Required as first property. ID of the job.
+      displayName: string # Human-readable name for the job.
+      steps:
+      - script: echo Hello, world!
+        displayName: 'Run a one-line ${{ parameters.string }}'
 
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
 
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        # Write your commands here
-        
-        echo 'Hello world'
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your commands here
+            
+            echo 'Hello world'
