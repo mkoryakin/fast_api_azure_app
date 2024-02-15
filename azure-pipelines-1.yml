@@ -23,7 +23,7 @@ jobs:
   displayName: string # Human-readable name for the job.
   steps:
   - script: echo Hello, world!
-    displayName: 'Run a one-line ${{ test1 }}'
+    displayName: 'Run a one-line $(test1)'
 
   - script: |
       echo Add other tasks to build, test, and deploy your project.
@@ -40,3 +40,11 @@ jobs:
       echo Add other tasks to build, test, and deploy your project.
       echo See https://aka.ms/yaml
     displayName: 'Run a multi-line script'
+
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your commands here
+        
+        echo 'Hello world'
